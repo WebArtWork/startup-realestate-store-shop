@@ -1,0 +1,45 @@
+<!-- {% for portfolio in portfolios %}
+<h1>{{{portfolio.name}}}</h1>
+<img src="{{{portfolio.thumb}}}" alt="{{{portfolio.name}}}">
+{% for thumb in portfolio.thumbs %}
+<img src="{{{thumb}}}" alt="{{{portfolio.name}}}">
+{% endfor %}
+<pre>{{{portfolio.description}}}</pre>
+{% endfor %}
+ -->
+
+
+<section class="portfolio-page">
+    <div class="portfolio-page__container">
+        <div class="portfolio-page__main">
+            <span class="land-section__line_top"></span>
+            <span class="land-section__line_bottom"></span>
+
+                <div class="portfolio-page__slider portfolio-page-slider main-slider swiper">
+                    <div class="portfolio-page-slider__wrapper swiper-wrapper">
+                        <div class="portfolio-page-slider__slide portfolio-page-slide swiper-slide">
+                            <a data-fancybox="gallery" data-src="{{{portfolio.thumb}}}">
+                                <img src="{{{portfolio.thumb}}}" alt="{{{portfolio.name}}}"
+                                    class="portfolio-page-slide__img" />
+                            </a>
+                        </div>
+                        {% for thumb in portfolio.thumbs %}
+                        <div class="portfolio-page-slider__slide portfolio-page-slide swiper-slide">
+                            <a data-fancybox="gallery" data-src="{{{thumb}}}">
+                                <img src="{{{thumb}}}" alt="{{{portfolio.name}}}" class="portfolio-page-slide__img" />
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="portfolio-page-slider__pagination swiper-pagination"></div>
+                </div>
+
+            <div class="portfolio-page__info portfolio-page-info">
+                <h2 class="portfolio-page-info__name">{{{portfolio.name}}}</h2>
+
+                <p class="portfolio-page-info__desc">{{{portfolio.description}}}</p>
+            </div>
+        </div>
+    </div>
+</section>

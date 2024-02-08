@@ -1,0 +1,212 @@
+{
+  "title": "Welcome to waw Template",
+  "description": "description",
+  "keywords": "keywords",
+  "prefix": "/artemvelihin",
+  "picture": "picture",
+  "author": "author",
+  "moderators": [],
+  "scss": "scss/index.scss",
+
+  "variables": {
+
+		"accent_color": "#337CCF",
+
+		"topbar_logo": "/artemvelihin/img/logo-dark.svg",
+		"footer_logo": "/artemvelihin/img/logo.svg",
+    
+		"hero_title": "The perfect real estate for you is already prepared",
+		"hero_text": "Ready-made website themes that will turn into your store in a few steps. Upgrade your business with Neryxomka.",
+		"hero_link_text": "Learn more",
+		"hero_bg": "/artemvelihin/img/hero-bg.jpg",
+
+
+		"services_title": "Services",
+		"services_button_text": "View all",
+		"services_text": "Choose a template that will give your store a clean and modern look, allowing your products to appear more appealing and capture customers attention.",
+
+		"products_title": "Products",
+		"products_button_text": "View all",
+		"products_text": "Choose a template that will give your store a clean and modern look, allowing your products to appear more appealing and capture customers attention.",
+
+    
+		"portfolio_title": "Portfolio",
+		"portfolio_button_text": "View all",
+		"portfolio_text": "Choose a template that will give your store a clean and modern look, allowing your products to appear more appealing and capture customers attention.",
+
+
+		"articles_title": "News from Neryxomka",
+		"articles_subtitle": "What's new at Neryxomka",
+		"articles_button_text": "View all posts",
+
+		"cta_title": "Upgrade your business with Neryxomka",
+		"cta_text": "Try on a website template that you like for your store",
+		"cta_button_text": "Try on",
+		"cta_bg": "/artemvelihin/img/cta-bg.jpg",
+
+
+		"instagram": "https://instagram.com/wawify",
+		"facebook": "https://www.facebook.com/profile.php",
+		"twitter": "https://twitter.com/wawify_com",
+		"telegram": "https://t.me/wawify_news",
+
+    "footer_rights": "All rights Reserved © Neryxomka, 2023"
+	},
+
+  "footer": {
+    "portfolios": [
+      {
+        "id": "/portfolio",
+        "thumb": "https://neryxomka.com/template/img/welcome.png",
+        "name": "portfolio"
+      },
+      {
+        "id": "/portfolio",
+        "thumb": "https://neryxomka.com/template/img/welcome.png",
+        "name": "portfolio"
+      },
+      {
+        "id": "/portfolio",
+        "thumb": "https://neryxomka.com/template/img/welcome.png",
+        "name": "portfolio"
+      }
+    ],
+    "products": [
+      {
+        "id": "/product",
+        "price": 1200,
+        "short": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
+        "thumb": "https://neryxomka.com/template/img/welcome.png",
+        "name": "product"
+      },
+      {
+        "id": "/product",
+        "price": 1200,
+        "short": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
+        "thumb": "https://neryxomka.com/template/img/welcome.png",
+        "name": "product"
+      },
+      {
+        "id": "/product",
+        "price": 1200,
+        "short": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
+        "thumb": "https://neryxomka.com/template/img/welcome.png",
+        "name": "product"
+      }
+    ],
+    "services": [
+      {
+        "id": "/service",
+        "price": 1200,
+        "short": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
+        "thumb": "https://neryxomka.com/template/img/welcome.png",
+        "name": "service"
+      },
+      {
+        "id": "/service",
+        "price": 1200,
+        "short": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
+        "thumb": "https://neryxomka.com/template/img/welcome.png",
+        "name": "service"
+      },
+      {
+        "id": "/service",
+        "price": 1200,
+        "short": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
+        "thumb": "https://neryxomka.com/template/img/welcome.png",
+        "name": "service"
+      }
+    ],
+    "articles": [
+      {
+        "id": "/article",
+        "short": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
+        "thumb": "https://neryxomka.com/template/img/welcome.png",
+        "name": "article"
+      },
+      {
+        "id": "/article",
+        "short": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
+        "thumb": "https://neryxomka.com/template/img/welcome.png",
+        "name": "article"
+      },
+      {
+        "id": "/article",
+        "short": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
+        "thumb": "https://neryxomka.com/template/img/welcome.png",
+        "name": "article"
+      }
+    ],
+    "contents": [
+			{
+				"name": "NameTitle",
+				"thumb": "/artemvelihin/img/4.webp",
+				"url": "Lorem ipsum ?"
+			},
+			{
+				"name": "NameTitle",
+				"thumb": "/artemvelihin/img/8.webp",
+				"url": "Lorem ipsum ?"
+			},
+			{
+				"name": "NameTitle",
+				"thumb": "/artemvelihin/img/7.webp",
+				"url": "Lorem ipsum ?"
+			},
+			{
+				"name": "NameTitle",
+				"thumb": "/artemvelihin/img/5.webp",
+				"url": "Lorem ipsum ?"
+			}
+		]
+  },
+
+	"tags": [
+		{
+			"category": {
+				"group": "article"
+			},
+			"name": "Tag one"
+		},
+		{
+			"category": {
+				"group": "product"
+			},
+			"name": "Tag one"
+		},
+		{
+			"category": {
+				"group": "service"
+			},
+			"name": "Tag one"
+		},
+    {
+			"category": {
+				"group": "portfolio"
+			},
+			"name": "Tag one"
+		}
+	],
+
+	"groups": [
+		{
+			"categories": [
+				{
+					"name": "Category Name",
+					"tags": [
+						{
+							"name": "Tag Name"
+						},
+						{
+							"name": "Tag Name"
+						},
+						{
+							"name": "Tag Name"
+						}
+					]
+				}
+			]
+		}
+	]
+}
+

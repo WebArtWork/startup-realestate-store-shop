@@ -1,0 +1,37 @@
+/* ------------------------------ Global styles ----------------------------- */
+
+/* ---------------------------------- Utils --------------------------------- */
+@import "scss/utils/reset";
+@import "scss/utils/fonts";
+@import "scss/utils/vars";
+@import "scss/utils/mixins";
+// @import "scss/media";
+@import "scss/base";
+
+/* --------------------------------- /Utils --------------------------------- */
+
+/* ---------------------------------- Pages --------------------------------- */
+@import "scss/pages/template";
+@import "scss/pages/index";
+@import "scss/pages/products";
+@import "scss/pages/product";
+@import "scss/pages/articles";
+@import "scss/pages/article";
+@import "scss/pages/services";
+@import "scss/pages/service";
+@import "scss/pages/portfolios";
+@import "scss/pages/portfolio";
+
+/* --------------------------------- /Pages --------------------------------- */
+
+/* ------------------------------- Layout ------------------------------- */
+@import "scss/layout/topbar";
+@import "scss/layout/footer";
+/* ------------------------------- /Layout ------------------------------ */
+
+/* ------------------------------- Components ------------------------------- */
+@import "scss/components/title";
+@import "scss/components/land-section";
+
+
+/* ------------------------------- /Components ------------------------------ */

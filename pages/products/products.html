@@ -1,0 +1,87 @@
+<script type="module">
+	import Product from '/api/wjst/product';
+	import Dom from '/api/wjst/dom';
+	Product.perPage = 1;
+	let page = 1;
+
+    if ((await Product.page(1)).length < Product.perPage) {
+		Dom.remove('loadProducts');
+	}
+
+	document.getElementById('loadProducts').addEventListener('click', async () => {
+		page++;
+		const products = await Product.page(page);
+
+        if (products.length < Product.perPage) {
+		Dom.remove('loadProducts');
+	}
+
+		for (const product of products) {
+			if (!product.thumbs) {
+				product.thumbs = [];
+			}
+			Dom.add('products', Dom.template('product', {
+				price: product.price,
+				thumb: product.thumb,
+				thumbs: product.thumbs.map(thumb => {
+					return Dom.template('product_thumb', {
+						name: product.name,
+						thumb
+					})
+				}),
+				name: product.name,
+				_id: product._id
+			}));
+		}
+	});
+</script>
+
+<section class="products-page">
+    <div class="products-page__container">
+        <h1 class="products-page__title title">Products</h1>
+
+        <div class="products-page__wrapper">
+            {% for product in products %}
+
+            <div class="products-page__card products-page-card">
+                <a href="/product/{{{product.id}}}" class="products-page-card__img">
+                    <img src="{{{product.thumb}}}" alt="{{{product.name}}}" />
+
+                    {% if product.thumbs.length %} {% for thumb in
+                    product.thumbs %}
+
+                    <img src="{{{thumb}}}" alt="{{{product.name}}}" />
+                    {% endfor %} {% endif %}
+                </a>
+
+                <div class="products-page-card__text">
+                    <a href="/product/{{{product.id}}}" class="products-page-card__name">{{{product.name}}}</a>
+                    <span class="products-page-card__price">{{{product.price}}}</span>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+
+        <button class="load-more" id="loadProducts">Load more</button>
+
+    </div>
+</section>
+
+<div style="display: none;" id="template-product">
+	<div class="products-page__card products-page-card">
+		<a href="/product/{_id}" class="products-page-card__img">
+			<img src="{thumb}" alt="{name}" />
+			{thumbs}
+		</a>
+
+		<div class="products-page-card__text">
+			<a href="/product/{_id}" class="products-page-card__name">{name}</a>
+			<span class="products-page-card__price">{price}</span>
+		</div>
+	</div>
+</div>
+
+<div style="display: none;" id="template-product_thumb">
+	<img src="{thumb}" alt="{name}" />
+</div>

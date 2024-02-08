@@ -1,0 +1,72 @@
+<script type="module">
+    import Portfolio from '/api/wjst/portfolio';
+    import Dom from '/api/wjst/dom';
+    Portfolio.perPage = 1;
+    let page = 1;
+
+    if ((await Portfolio.page(1)).length < Portfolio.perPage) {
+        Dom.remove('loadPortfolios');
+    }
+
+    document.getElementById('loadPortfolios').addEventListener('click', async () => {
+        page++;
+        const portfolios = await Portfolio.page(page);
+
+        if (portfolios.length < Portfolio.perPage) {
+            Dom.remove('loadPortfolios');
+        }
+
+        for (const portfolio of portfolios) {
+            if (!portfolio.thumbs) {
+                portfolio.thumbs = [];
+            }
+            Dom.add('portfolios', Dom.template('portfolio', {
+                price: portfolio.price,
+                thumb: portfolio.thumb,
+                thumbs: portfolio.thumbs.map(thumb => {
+                    return Dom.template('portfolio_thumb', {
+                        name: portfolio.name,
+                        thumb
+                    })
+                }),
+                name: portfolio.name,
+                _id: portfolio._id
+            }));
+        }
+    });
+</script>
+
+<section class="portfolios-page">
+    <div class="portfolios-page__container">
+        <h2 class="portfolios-page__title title">Portfolios</h2>
+
+        <div class="portfolios-page__wrapper">
+            {% for portfolio in portfolios %}
+
+            <a href="/portfolio/{{{portfolio.id}}}" class="portfolios-page__card portfolios-page-card">
+                <div class="portfolios-page-card__img">
+                    <img src="{{{portfolio.thumb}}}" alt="{{{portfolio.name}}}" />
+                </div>
+                <span class="portfolios-page-card__title">{{{portfolio.name}}}</span>
+            </a>
+
+            {% endfor %}
+        </div>
+
+        <button class="load-more" id="loadPortfolios">Load more</button>
+
+    </div>
+</section>
+
+<div style="display: none;" id="template-portfolio">
+    <a href="/portfolio/{_id}" class="portfolios-page__card portfolios-page-card">
+        <div class="portfolios-page-card__img">
+            <img src="{thumb}" alt="{name}" />
+        </div>
+        <span class="portfolios-page-card__title">{name}</span>
+    </a>
+</div>
+
+<div style="display: none;" id="template-portfolio_thumb">
+    <img src="{thumb}" alt="{name}" />
+</div>

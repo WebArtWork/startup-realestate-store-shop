@@ -1,0 +1,72 @@
+<script type="module">
+    import Service from '/api/wjst/service';
+    import Dom from '/api/wjst/dom';
+    Service.perPage = 1;
+    let page = 1;
+
+    if ((await Service.page(1)).length < Service.perPage) {
+        Dom.remove('loadServices');
+    }
+
+    document.getElementById('loadServices').addEventListener('click', async () => {
+        page++;
+        const services = await Service.page(page);
+
+        if (services.length < Service.perPage) {
+            Dom.remove('loadServices');
+        }
+
+        for (const service of services) {
+            if (!service.thumbs) {
+                service.thumbs = [];
+            }
+            Dom.add('services', Dom.template('service', {
+                price: service.price,
+                thumb: service.thumb,
+                thumbs: service.thumbs.map(thumb => {
+                    return Dom.template('service_thumb', {
+                        name: service.name,
+                        thumb
+                    })
+                }),
+                name: service.name,
+                _id: service._id
+            }));
+        }
+    });
+</script>
+
+<section class="services-page">
+    <div class="services-page__container">
+        <h2 class="services-page__title title">Services</h2>
+
+        <div class="services-page__wrapper">
+            {% for service in services %}
+
+            <a href="/service/{{{service.id}}}" class="services-page__card services-page-card">
+                <div class="services-page-card__img">
+                    <img src="{{{service.thumb}}}" alt="{{{service.name}}}" />
+                </div>
+                <span class="services-page-card__title">{{{service.name}}}</span>
+            </a>
+
+            {% endfor %}
+        </div>
+
+        <button class="load-more" id="loadServices">Load more</button>
+
+    </div>
+</section>
+
+<div style="display: none;" id="template-service">
+    <a href="/service/{_id}" class="services-page__card services-page-card">
+        <div class="services-page-card__img">
+            <img src="{thumb}" alt="{name}" />
+        </div>
+        <span class="services-page-card__title">{name}</span>
+    </a>
+</div>
+
+<div style="display: none;" id="template-service_thumb">
+    <img src="{thumb}" alt="{name}" />
+</div>

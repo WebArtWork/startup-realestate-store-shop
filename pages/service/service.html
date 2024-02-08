@@ -1,0 +1,37 @@
+<section class="service">
+	<div class="service__container">
+		<div class="service__main">
+			<div class="service__text">
+				<h1 class="service__title">{{{service.name}}}</h1>
+
+				<p class="service__desc">
+					{{{service.description}}}
+				</p>
+			</div>
+
+			<div class="service__slider service-slider main-slider swiper">
+				<div class="service-slider__wrapper swiper-wrapper">
+					<div class="service-slider__slide service-slide swiper-slide">
+						<a data-fancybox="gallery" data-src="{{{service.thumb}}}">
+							<img src="{{{service.thumb}}}" alt="{{{service.name}}}" class="service-slide__img" />
+						</a>
+					</div>
+					{% if service.thumbs.length %}
+					{% for thumb in service.thumbs %}
+					<div class="service-slider__slide service-slide swiper-slide">
+						<a data-fancybox="gallery" data-src="{{{thumb}}}">
+							<img src="{{{thumb}}}" alt="{{{service.name}}}" class="service-slide__img" />
+						</a>
+					</div>
+					{% endfor %}
+				{% endif %}
+
+				</div>
+
+				<div class="service-slider__pagination swiper-pagination"></div>
+			</div>
+
+		</div>
+	</div>
+	</div>
+</section>
