@@ -87,99 +87,46 @@
 	<footer class="footer">
 		<div class="footer__container">
 			<div class="footer__logo">
-				<a href="/">
+				<!-- <a href="/">
 					{% if variables.footer_logo %}
 					<img src="{{{variables.footer_logo}}}" alt="Logo" />
-					{% endif %} </a>
+					{% endif %} </a> -->
 			</div>
 			<div class="footer__main footer-main">
 				<div class="footer-main__menu footer-menu">
 
-					{% if footer.contents.length %}
 					<div class="footer-menu__block">
-						<span class="footer-menu__title">{{{translate('ThemeArtemVelihin.Contents')}}}</span>
+						<a href="/portfolios" class="footer-menu__title">{{{translate('ThemeArtemVelihin.Material')}}}</a>
 						<ul class="footer-menu__list">
 
-							{% for content in footer.contents %}
 
 							<li class="footer-menu__item">
-								<a href="{{{content.url}}}" class="footer-menu__link">{{{content.name}}}</a>
+								<a href="/portfolio" class="footer-menu__link">Material One</a>
+							</li>
+							<li class="footer-menu__item">
+								<a href="/portfolio" class="footer-menu__link">Material Two</a>
 							</li>
 
-							{% endfor %}
+							<li class="footer-menu__item">
+								<a href="/portfolio" class="footer-menu__link">Material Three</a>
+							</li>
+						</ul>
+					</div>
+					<div class="footer-menu__block">
+						<span class="footer-menu__title">{{{translate('ThemeArtemVelihin.Home')}}}</span>
+						<ul class="footer-menu__list">
+
+
+							<li class="footer-menu__item">
+								<a href="{{{content.url}}}" class="footer-menu__link">Contact</a>
+							</li>
+							<li class="footer-menu__item">
+								<a href="{{{content.url}}}" class="footer-menu__link">Portfolio</a>
+							</li>
+
 
 						</ul>
 					</div>
-					{% endif %}
-
-					{% if footer.portfolios.length %}
-					<div class="footer-menu__block">
-						<a href="/portfolios" class="footer-menu__title">{{{translate('ThemeArtemVelihin.Portfolios')}}}</a>
-						<ul class="footer-menu__list">
-
-							{% for portfolio in footer.portfolios %}
-
-							<li class="footer-menu__item">
-								<a href="/portfolio" class="footer-menu__link">{{{portfolio.name}}}</a>
-							</li>
-
-							{% endfor %}
-
-						</ul>
-					</div>
-					{% endif %}
-
-					{% if footer.services.length %}
-					<div class="footer-menu__block">
-						<a href="/services" class="footer-menu__title">{{{translate('ThemeArtemVelihin.Services')}}}</a>
-						<ul class="footer-menu__list">
-
-							{% for service in footer.services %}
-
-							<li class="footer-menu__item">
-								<a href="/service" class="footer-menu__link">{{{service.name}}}</a>
-							</li>
-
-						{% endfor %}
-
-						</ul>
-					</div>
-					{% endif %}
-
-					{% if footer.products.length %}
-					<div class="footer-menu__block">
-						<a href="/products" class="footer-menu__title">{{{translate('ThemeArtemVelihin.Products')}}}</a>
-						<ul class="footer-menu__list">
-
-							{% for product in footer.products %}
-
-							<li class="footer-menu__item">
-								<a href="/product" class="footer-menu__link">{{{product.name}}}</a>
-							</li>
-
-						{% endfor %}
-
-						</ul>
-					</div>
-					{% endif %}
-					
-
-					{% if footer.articles.length %}
-					<div class="footer-menu__block">
-						<a href="/articles" class="footer-menu__title">{{{translate('ThemeArtemVelihin.Articles')}}}</a>
-						<ul class="footer-menu__list">
-
-							{% for article in footer.articles %}
-
-							<li class="footer-menu__item">
-								<a href="/article" class="footer-menu__link">{{{article.name}}}</a>
-							</li>
-
-						{% endfor %}
-
-						</ul>
-					</div>
-					{% endif %}
 
 				</div>
 

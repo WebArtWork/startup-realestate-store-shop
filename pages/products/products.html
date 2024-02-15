@@ -1,4 +1,4 @@
-<script type="module">
+<!-- <script type="module">
 	import Product from '/api/wjst/product';
 	import Dom from '/api/wjst/dom';
 	Product.perPage = 1;
@@ -34,14 +34,28 @@
 			}));
 		}
 	});
-</script>
+</script> -->
 
-<section class="products-page">
+<section class="cta">
+	<div class="cta__container">
+		{% if variables.cta_title %}
+		<h2 class="cta__title">{{{variables.cta_title}}}</h2>
+		{% endif %} {% if variables.cta_text %}
+		<p class="cta__text">{{{variables.cta_text}}}</p>
+		{% endif %} <!-- {% if variables.cta_button_text %}
+		<a href="/manage/profile" class="cta__link">
+			{{{variables.cta_button_text}}}
+		</a>
+		{% endif %} -->
+	</div>
+</section>
+
     <div class="products-page__container">
-        <h1 class="products-page__title title">Products</h1>
+		{% for tag in tags %}
+        <h1 class="products-page__title title">{{{tag.name}}}</h1>
 
         <div class="products-page__wrapper">
-            {% for product in products %}
+			{% for product in tag.products %}
 
             <div class="products-page__card products-page-card">
                 <a href="/product/{{{product.id}}}" class="products-page-card__img">
@@ -55,20 +69,20 @@
                 </a>
 
                 <div class="products-page-card__text">
-                    <a href="/product/{{{product.id}}}" class="products-page-card__name">{{{product.name}}}</a>
+					<a href="/product{{{product.url ? '/' + product.url : '' || product.id ? '/' + product.id : ''}}}" class="products-page-card__name">{{{product.name}}}</a>
                     <span class="products-page-card__price">{{{product.price}}}</span>
                 </div>
             </div>
 
             {% endfor %}
         </div>
-
-        <button class="load-more" id="loadProducts">Load more</button>
+		{% endfor %}
+        <!-- <button class="load-more" id="loadProducts">Load more</button> -->
 
     </div>
 </section>
 
-<div style="display: none;" id="template-product">
+<!-- <div style="display: none;" id="template-product">
 	<div class="products-page__card products-page-card">
 		<a href="/product/{_id}" class="products-page-card__img">
 			<img src="{thumb}" alt="{name}" />
@@ -84,4 +98,4 @@
 
 <div style="display: none;" id="template-product_thumb">
 	<img src="{thumb}" alt="{name}" />
-</div>
+</div> -->
